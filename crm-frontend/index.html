@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preload" href="img/loading.svg" as="image">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="main.js"></script>
+    <title>main_JS CRM</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="section-header">
+            <a href="#" class="header__logo">
+                <img src="img/logo_header.svg" class="header__logo-img" alt="логотип">
+            </a>
+            <input type="text" placeholder="Введите запрос" class="header__search" id="input__search">
+        </div>
+    </header>
+
+    <main class="container section-table">
+        <h1 class="section-table__title">
+            Клиенты
+        </h1>
+        <div class="section-table__table-scroll">
+            <div class="preloader">
+                <svg class="preloader__icon" width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 20C2 29.941 10.059 38 20 38C29.941 38 38 29.941 38 20C38 10.059 29.941 2 20 2C17.6755 2 15.454 2.4405 13.414 3.243" stroke="#9873FF" stroke-width="4" stroke-miterlimit="10" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <table class="section-table__table">
+                <thead class="table__header">
+                    <tr class="table__header-row">
+                        <th id="IDHeader" class="btn table__item table__id table-header__sort sort-asc">ID</th>
+                        <th id="FIOHeader" class="btn table__item table__fio table-header__sort">
+                            Фамилия Имя Отчество
+                            <span class="sort-fio"></span>
+                        </th>
+                        <th id="CreateHeader" data-type="date_time" class="btn table__item table__created table-header__sort">Дата и время создания</th>
+                        <th id="ModifyHeader" data-type="date_time" class="btn table__item table__modified table-header__sort">Последние изменения</th>
+                        <th class="table__item table__contacts">Контакты</th>
+                        <th class="table__item table__actions table-header__actions">Действия</th>
+                    </tr>
+                </thead>
+                <tbody class="table__main" id="table__body">
+
+                    <!-- тело таблицы строится динамически, JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <button class="btn section-table__btn" id="addClientBtn">Добавить клиента</button>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createTable('table__body');
+
+        })
+    </script>
+</body>
+
+</html>
